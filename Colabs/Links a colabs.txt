@@ -1,0 +1,9 @@
+
+2022-1-Trabajo_Practico_1.ipynb
+
+https://colab.research.google.com/drive/1wLVdp1h-kdr6h3y9deTfRbsOna8JyxjH#scrollTo=ZadlUN42v6_o  
+
+
+040_SelecciónDelModelo.ipynb
+
+https://colab.research.google.com/drive/1LX7B0FyZR9-yj7Z2Od_I2-Nr57dM_yyb
