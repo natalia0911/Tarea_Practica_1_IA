@@ -73,13 +73,79 @@ plt.show()
 groupsByYear = serie.groupby(pd.Grouper(freq='A'))
 years = pd.DataFrame()
 for name,group in groupsByYear:
-    print(name.year,"\n",group.values)
-    print("-----------------------------------")
-    #years[name.year] = group.values
-print(years.head(10))
-#years.plot(subplots = True, legend = False)
-#pd.show()
+    # Se agregan como columnas los años y se le asigna a la columna
+    # el conjunto de temperaturas
+    years[name.year] = pd.Series(group['temperatura'].values)
+print(years)
+years.plot(subplots = True, legend = False)
+plt.show()
 
+
+#Grafico histograma
+serie.hist()
+plt.show()
+
+
+# Grafico densidad
+serie.plot(kind='kde')
+plt.show()
+
+
+
+#Agrupe los datos de la variable serie de manera Anual, y muestre los Boxplot de cada año.
+groupsByYear = serie.groupby(pd.Grouper(freq='A'))
+years = pd.DataFrame()
+for name,group in groupsByYear:
+    # Se agregan como columnas los años y se le asigna a la columna
+    # el conjunto de temperaturas
+    years[name.year] = pd.Series(group['temperatura'].values)
+
+years.boxplot()
+plt.show()
+
+
+
+#Agrupe los datos de la variable serie de manera Anual, y muestre el Heat Map por año.
+groupsByYear = serie.groupby(pd.Grouper(freq='A'))
+years = pd.DataFrame()
+for name,group in groupsByYear:
+    # Se agregan como columnas los años y se le asigna a la columna
+    # el conjunto de temperaturas
+    years[name.year] = pd.Series(group['temperatura'].values)
+#Se transpone la matriz
+years = years.T
+print(years)
+
+plt.matshow(years,interpolation=None,aspect='auto')
+plt.show()
+
+
+#Muestre el Lag Scatter plot de la variable series.
+pd.plotting.lag_plot(serie)
+plt.show()
 '''
+
+#Muestre el gráfico Autocorrelación de la variable series.
+#serie = pd.read_csv("../CSV/daily-minimum-temperatures.csv", delimiter = ",",parse_dates=[0], index_col=0)
+pd.plotting.autocorrelation_plot(serie)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
